@@ -14,42 +14,64 @@
 </head>
 <body>
   <h1>Privacy Policy — Kick Ad Blocker</h1>
-  <div class="updated">Last updated: August 10, 2026</div>
+  <div class="updated">Last updated: August 24, 2026</div>
 
-  <p>This privacy policy describes how the <strong>Kick Ad Blocker</strong> Chrome extension ("the extension", "we") handles information. The extension's only purpose is to block in-stream (SSAI) video ads on the kick.com website.</p>
+  <p>This privacy policy describes how the <strong>Kick Ad Blocker</strong> Chrome extension ("the extension", "we") handles information. The extension blocks in-stream (SSAI) video ads on kick.com, lets you recolor the site with your own theme, sends live notifications for favorite channels, and optionally provides a built-in <strong>AI Chat Bot</strong>.</p>
 
   <h2>1. Information We Do NOT Collect</h2>
-  <p>The extension does <strong>not</strong> collect, store, or transmit any of the following:</p>
+  <p>The extension does <strong>not</strong> collect, store, or transmit any of the following to us:</p>
   <ul>
     <li>Personal identification information (name, email address, phone number)</li>
-    <li>Account credentials or passwords</li>
+    <li>Account credentials or passwords (including your Kick login)</li>
     <li>Payment or financial information</li>
     <li>Health or biometric data</li>
     <li>Location data or IP addresses</li>
     <li>Browsing history</li>
     <li>Keystrokes, mouse movements, or any other input data</li>
-    <li>Websites content of any kind</li>
+    <li>We do not have analytics, telemetry, tracking pixels, or developer-side logging of any kind</li>
   </ul>
 
-  <h2>2. Information Stored Locally</h2>
-  <p>The extension stores a single flag in your browser's local storage (Chrome <code>storage.local</code> API) indicating whether the ad-blocking mode is active. This flag is used only to show the correct status in the extension popup and never leaves your device.</p>
+  <h2>2. Information Stored Locally on Your Device</h2>
+  <p>All settings and data below are stored only in your browser's local storage (Chrome <code>storage.local</code>) and never leave your device unless you explicitly use the AI feature described in section 3:</p>
+  <ul>
+    <li><strong>Extension settings</strong>: ad-blocking mode, theme color, language, interface accent color.</li>
+    <li><strong>Favorite channels</strong>: the channel names you add for live notifications.</li>
+    <li><strong>AI Chat Bot configuration</strong>: bot on/off state, personas (names, trigger words, personality prompts), custom commands, cooldowns, and the <strong>API key of the AI provider you choose</strong>. Your API key is stored locally and is sent only to that provider when you use the bot.</li>
+    <li><strong>Memory notes about chat users</strong>: short text notes the AI writes to remember preferences of viewers who talk to it. These notes stay in local storage, can be viewed and deleted at any time in the extension's Settings → Memory panel, and are never uploaded anywhere by us.</li>
+    <li><strong>Learned emote codes</strong>: a list of kick.com emote codes seen in chat, used so the bot can reply with native platform emotes.</li>
+    <li><strong>Statistics</strong>: a simple counter of blocked ads, kept locally.</li>
+  </ul>
 
-  <h2>3. Network Requests</h2>
-  <p>The extension makes a single request to the official Kick API (<code>kick.com</code>) to obtain the ad-free playback URL of the channel you are currently watching. This request is made in the page's own context and contains no personal data. No other network requests are made by the extension.</p>
+  <h2>3. AI Chat Bot Feature (Optional, Off by Default)</h2>
+  <p>The AI Chat Bot is disabled until you turn it on and paste your own API key. When enabled and someone in chat addresses the bot:</p>
+  <ul>
+    <li><strong>What is sent</strong>: the chat message that triggered the reply, the persona's personality prompt, global instructions, a short recent conversation history with that viewer (if memory is enabled), the viewer's public chat nickname, and small locally stored memory notes about that viewer.</li>
+    <li><strong>Where it is sent</strong>: directly from your browser to <strong>the AI provider you selected</strong> — Google Gemini (<code>generativelanguage.googleapis.com</code>), OpenAI (<code>api.openai.com</code>), Groq (<code>api.groq.com</code>), or OpenRouter (<code>openrouter.ai</code>) — using <em>your own API key</em>. The request is made by the extension's service worker; the developer never sees your key, your prompts, or the responses.</li>
+    <li><strong>Provider policies apply</strong>: what those providers do with the content is governed by their own terms and privacy policies (for example, Google's Gemini API terms include human review of some free-tier traffic). Choose a paid tier or a different provider if this matters to you.</li>
+    <li>The bot reads only the messages needed to answer; it does not silently upload the whole chat room.</li>
+  </ul>
 
-  <h2>4. Data Sharing</h2>
-  <p>We do not sell, trade, rent, or share any user data with third parties. Because the extension does not collect user data, there is nothing to share.</p>
+  <h2>4. Network Requests</h2>
+  <p>The extension makes only these requests:</p>
+  <ul>
+    <li>A request to the official Kick API (<code>kick.com</code>) to obtain the ad-free playback URL of the channel you are currently watching (page context, no personal data).</li>
+    <li>A periodic request to the same Kick API to check whether your favorite channels are live (only if you added favorites and notifications are on).</li>
+    <li>Requests to your chosen AI provider's endpoint, <strong>only when the AI Chat Bot is used</strong> (see section 3).</li>
+  </ul>
 
-  <h2>5. Third-Party Content</h2>
+  <h2>5. Data Sharing</h2>
+  <p>We do not sell, trade, rent, or share any user data with third parties. The only external recipients of any content are the AI providers <em>you</em> explicitly configure, and only for messages you send through the bot. Everything else remains on your device.</p>
+
+  <h2>6. Third-Party Content</h2>
   <p>The extension popup contains a donation button that links to <code>buymeacoffee.com</code>. Clicking this button is an optional action taken by the user and is subject to Buy Me a Coffee's own privacy policy. The button image is loaded directly from the Buy Me a Coffee CDN.</p>
 
-  <h2>6. Children's Privacy</h2>
+  <h2>7. Children's Privacy</h2>
   <p>The extension does not knowingly collect any information from children under the age of 13.</p>
 
-  <h2>7. Changes to This Policy</h2>
-  <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
+  <h2>8. Changes to This Policy</h2>
+  <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date. This version covers the features introduced in v1.3.0, including the AI Chat Bot with multiple provider support.</p>
 
-  <h2>8. Contact</h2>
+  <h2>9. Contact</h2>
   <p>If you have any questions about this privacy policy, please contact the developer through the Chrome Web Store listing page of the Kick Ad Blocker extension.</p>
 </body>
 </html>
